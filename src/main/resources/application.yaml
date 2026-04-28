@@ -2,7 +2,7 @@ spring:
   application:
     name: Health-Auth-Service
   profiles:
-    active: dev
+    active: uat
 
 server:
   port: 7001
