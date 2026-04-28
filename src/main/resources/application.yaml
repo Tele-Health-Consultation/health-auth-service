@@ -6,3 +6,36 @@ spring:
 
 server:
   port: 7001
+
+management:
+  server:
+    port: 9001  # This is used to run actuator separately from application port
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always   # never / when_authorized / always
+    shutdown:
+      enabled: true   # In production → only allow internally (or don’t enable at all)
+  metrics:
+    tags:
+      application: auth-service
+  tracing:
+    sampling:
+      probability: 1.0   # use 0.1 or lower in prod
+    otlp:
+      tracing:
+        endpoint: http://localhost:4318/v1/traces   # Collector endpoint where all the traces, metrics or logs are sent
+
+info:
+  app:
+    name: Health Auth Service
+    version: 1.0.0
+    description: Auth Service that contains logic and code to authenticate and authorize user from accessing our project
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:}, traceId = %X{traceId}, spanId = %X{spanId}]"

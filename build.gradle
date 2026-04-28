@@ -49,6 +49,11 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+	// OpenTelemetry tracing via Micrometer
+	implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+	// OTLP exporter (to send traces to collector / Grafana / Jaeger)
+	implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
 }
 
 dependencyManagement {
