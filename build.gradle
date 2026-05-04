@@ -54,6 +54,8 @@ dependencies {
 	implementation 'io.micrometer:micrometer-tracing-bridge-otel'
 	// OTLP exporter (to send traces to collector / Grafana / Jaeger)
 	implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	testImplementation 'org.springframework.boot:spring-boot-starter-mail-test'
 }
 
 dependencyManagement {

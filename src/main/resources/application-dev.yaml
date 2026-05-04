@@ -43,6 +43,19 @@ spring:
     redis:
       time-to-live: 60000
 
+  mail:
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            require: true
+
 eureka:
   client:
     healthcheck:
