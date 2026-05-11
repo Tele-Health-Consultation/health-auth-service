@@ -68,3 +68,9 @@ eureka:
   instance:
     prefer-ip-address: true
 
+security:
+  jwt:
+    secret: your-256-bit-base64-encoded-secret-key-here-must-be-long-enough
+    access-token-expiry: 900000        # 15 minutes in ms
+    refresh-token-expiry: 604800000    # 7 days in ms
+    issuer: health-auth-service
